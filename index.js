@@ -179,12 +179,12 @@ async function run() {
 
 
     //delete my added parcel
-    // app.delete('/parcels/:id', async(req, res) => {
-    //   const id = req.params.id;
-    //   const query = {_id: new ObjectId(id)};
-    //   const result = await parcelsCollection.deleteOne(query);
-    //   res.send(result);
-    // })
+    app.delete('/parcels/:id', async(req, res) => {
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const result = await parcelsCollection.deleteOne(query);
+      res.send(result);
+    })
 
   
   //Payment intent
