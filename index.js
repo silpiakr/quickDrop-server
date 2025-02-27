@@ -187,34 +187,34 @@ async function run() {
     })
 
   
-  //Payment intent
-  // app.post('/create-payment-intent', async(req, res) => {
-  //   const { donation } = req.body;
-  //   const amount = parseInt(donation * 100);
+  // Payment intent
+  app.post('/create-payment-intent', async(req, res) => {
+    const { donation } = req.body;
+    const amount = parseInt(donation * 100);
 
-  //   const paymentIntent = await stripe.paymentIntents.create({
-  //     amount: amount,
-  //     currency: "usd",
-  //     payment_method_types: ['card']
-  //   });
-  //   res.send({
-  //     clientSecret: paymentIntent.client_secret
-  //   })
-  // })
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: amount,
+      currency: "usd",
+      payment_method_types: ['card']
+    });
+    res.send({
+      clientSecret: paymentIntent.client_secret
+    })
+  })
 
-  //booking request
-  // app.get('/bookingRequest', async(req, res) => {
-  //   const email = req.query.email;
-  //   const query = { email: email }
-  //   const result = await parcelsBookingCollection.find(query).toArray();
-  //   res.send(result);
-  // })
+  // booking request
+  app.get('/bookingRequest', async(req, res) => {
+    const email = req.query.email;
+    const query = { email: email }
+    const result = await parcelsBookingCollection.find(query).toArray();
+    res.send(result);
+  })
 
-  // app.post('/bookingRequest', async(req, res) => {
-  //   const adoptionPet = req.body;
-  //   const result = await parcelsBookingCollection.insertOne(adoptionPet);
-  //   res.send(result);
-  // })
+  app.post('/bookingRequest', async(req, res) => {
+    const adoptionPet = req.body;
+    const result = await parcelsBookingCollection.insertOne(adoptionPet);
+    res.send(result);
+  })
 
 
     await client.db("admin").command({ ping: 1 });
