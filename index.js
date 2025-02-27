@@ -151,21 +151,21 @@ async function run() {
     })
     
     //update my added parcel
-    // app.put('/parcels/:id', async (req, res) => {
-    //   const id = req.params.id;
-    //   const pet = req.body;
-    //   const updateDoc = {
-    //     $set: {
-    //       ...pet,
-    //     },
-    //   };
-    //   const result = await parcelsCollection.updateOne(
-    //     { _id: new ObjectId(id) },
-    //     updateDoc,
-    //     { upsert: true }
-    //   );
-    //   res.send(result);
-    // });
+    app.put('/parcels/:id', async (req, res) => {
+      const id = req.params.id;
+      const pet = req.body;
+      const updateDoc = {
+        $set: {
+          ...pet,
+        },
+      };
+      const result = await parcelsCollection.updateOne(
+        { _id: new ObjectId(id) },
+        updateDoc,
+        { upsert: true }
+      );
+      res.send(result);
+    });
 
     // app.patch('/parcels/:id', async (req, res) => {
     //   const id = req.params.id;
