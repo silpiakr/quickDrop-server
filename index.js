@@ -9,13 +9,6 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// DB_PASS: PfRlajspkI1WWCdb
-// DB_USER: delivery_servise
-
-
-// DB_PASS = Pa44bNozVVenPQdp
-// DB_USER = quickDrop
-
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.anca8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
