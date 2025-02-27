@@ -167,14 +167,14 @@ async function run() {
       res.send(result);
     });
 
-    // app.patch('/parcels/:id', async (req, res) => {
-    //   const id = req.params.id;
-    //   const { booked } = req.body;
-    //   const filter = { _id: new ObjectId(id) };
-    //   const updateDoc = { $set: { booked } };
-    //   const result = await parcelsCollection.updateOne(filter, updateDoc);
-    //   res.send(result);
-    // });
+    app.patch('/parcels/:id', async (req, res) => {
+      const id = req.params.id;
+      const { booked } = req.body;
+      const filter = { _id: new ObjectId(id) };
+      const updateDoc = { $set: { booked } };
+      const result = await parcelsCollection.updateOne(filter, updateDoc);
+      res.send(result);
+    });
     
 
 
